@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Verdana;
+  font-family: Verdana, sans-serif;
 }
 
 body {
@@ -54,8 +54,10 @@ select {
 
 /* Todo Header */
 .todo-container {
-  margin: 2rem 2rem 2rem 2rem;
+  margin: 2rem auto;
   padding: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
 }
 
 .todo-container header {
@@ -68,7 +70,6 @@ select {
 #todo-form,
 #edit-form {
   padding: 1rem;
-  border-right-width: 100px;
   border-bottom: 1px solid #ccc;
 }
 
@@ -88,10 +89,9 @@ select {
 }
 
 .grid-item {
-  flex-direction: column;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  color: #fdfdfd;
   display: flex;
+  flex-direction: column;
+  color: #fdfdfd;
 }
 
 .full-width {
@@ -111,17 +111,18 @@ select {
   padding: 1rem;
   border-bottom: 1px solid #ccc;
   display: flex;
+  flex-wrap: wrap;
 }
 
 #toolbar h4 {
   margin-bottom: 0.5rem;
+  width: 100%;
 }
 
 #search {
-  border-right: 1px solid #ddd;
+  flex: 1;
   padding-right: 1rem;
   margin-right: 1rem;
-  width: 65%;
   display: flex;
   flex-direction: column;
 }
@@ -136,7 +137,7 @@ select {
 }
 
 #filter {
-  width: 35%;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -150,7 +151,7 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1rem;
+  padding: 1rem;
   border-bottom: 1px solid #ddd;
   transition: 0.3s;
   flex-wrap: wrap;
@@ -194,4 +195,50 @@ select {
   color: #fff;
   text-decoration: line-through;
   font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .todo-container {
+    padding: 1rem;
+  }
+
+  .grid-container {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .full-width {
+    grid-column: span 1;
+  }
+
+  #toolbar {
+    flex-direction: column;
+  }
+
+  #toolbar h4 {
+    margin-bottom: 1rem;
+  }
+
+  #search,
+  #filter {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #search form {
+    flex-direction: column;
+  }
+
+  #search input {
+    margin-bottom: 0.5rem;
+  }
+
+  .todo h3 {
+    font-size: 0.9rem;
+  }
+
+  .todo p {
+    font-size: 0.8rem;
+  }
 }
